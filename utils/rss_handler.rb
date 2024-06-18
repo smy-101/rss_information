@@ -1,5 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
+require_relative '../model/rss_feed'
 
 # format the rss feed
 class RSSHandler
@@ -32,6 +33,12 @@ class RSSHandler
     else
       title_element.content
     end
+  end
+
+  def add_rss_url(url)
+    result = RssFeed.create(url: url)
+    puts result.persisted?
+    puts "Failed to create RssFeed: #{result.errors.messages}"
   end
 
   private
