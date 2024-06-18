@@ -13,5 +13,3 @@ class CreateRssItems < ActiveRecord::Migration[6.0]
     end
   end
 end
-
-CreateRssItems.new.change

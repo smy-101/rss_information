@@ -41,6 +41,7 @@ class RSSHandler
       title = item.at_xpath('title').content
       link = item.at_xpath('link').content
       [title, link, item]
+      puts [title, link, item]
     end
   end
 
@@ -49,6 +50,7 @@ class RSSHandler
       title = entry.at_xpath('title').content
       link = entry.at_xpath('link')['href']
       [title, link, item]
+      puts [title, link, item]
     end
   end
 end
