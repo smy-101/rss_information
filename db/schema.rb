@@ -13,7 +13,6 @@
 ActiveRecord::Schema[7.1].define(version: 0) do
   create_table "rss_feeds", force: :cascade do |t|
     t.string "name"
-    t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -28,5 +27,15 @@ ActiveRecord::Schema[7.1].define(version: 0) do
     t.index ["rss_feed_id"], name: "index_rss_items_on_rss_feed_id"
   end
 
+  create_table "rss_urls", force: :cascade do |t|
+    t.string "url"
+    t.boolean "is_original"
+    t.integer "rss_feed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["rss_feed_id"], name: "index_rss_urls_on_rss_feed_id"
+  end
+
   add_foreign_key "rss_items", "rss_feeds"
+  add_foreign_key "rss_urls", "rss_feeds"
 end

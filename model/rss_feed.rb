@@ -2,7 +2,7 @@ require 'active_record'
 
 # rss feed model
 class RssFeed < ActiveRecord::Base
-  has_many :rss_items
+  has_many :rss_items, :rss_urls
 
   validates :url, :name, presence: true
 
